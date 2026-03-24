@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knoxville Spa | Relax, Refresh, Restore</title>
+  <meta
+    name="description"
+    content="Knoxville Spa helps you relax, glow, and feel renewed with calming spa treatments in Knoxville, TN. Book now or call today."
+  />
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --panel: #ffffff;
+      --panel-soft: #f1ece7;
+      --text: #2f2a27;
+      --muted: #6f655e;
+      --line: rgba(47, 42, 39, 0.1);
+      --primary: #7f9c8b;
+      --primary-dark: #6b8777;
+      --accent: #d8b9a0;
+      --shadow: 0 18px 40px rgba(55, 44, 38, 0.1);
+      --radius: 22px;
+      --radius-sm: 14px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 86px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 12px 0 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 14px 0 28px;
+    }
+
+    .hero-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.96)),
+        radial-gradient(circle at top left, rgba(216,185,160,0.22), transparent 38%),
+        radial-gradient(circle at top right, rgba(127,156,139,0.18), transparent 42%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-content {
+      padding: 22px 16px 20px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--panel-soft);
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 8vw, 3.4rem);
+      line-height: 1.03;
+      letter-spacing: -1.2px;
+    }
+
+    .subheadline {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 34rem;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+
+    .trust-chip {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      color: var(--text);
+      box-shadow: 0 8px 18px rgba(55, 44, 38, 0.06);
+    }
+
+    .review-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .review-stars {
+      color: #9a7a2c;
+      font-size: 0.98rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .review-box p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .cta-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      border-radius: 14px;
+      border: 0;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0 18px;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(127, 156, 139, 0.28);
+    }
+
+    .btn-secondary {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .hero-image {
+      min-height: 240px;
+      background:
+        linear-gradient(rgba(38, 34, 31, 0.18), rgba(38, 34, 31, 0.18)),
+        url("https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    .section-head {
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.6px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .services-grid,
+    .benefit-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      box-shadow: 0 12px 25px rgba(55, 44, 38, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 1.02rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .price {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      background: linear-gradient(180deg, rgba(127,156,139,0.08), rgba(216,185,160,0.08));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .highlight ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .highlight li + li {
+      margin-top: 8px;
+    }
+
+    .contact-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+
+    .contact-item {
+      background: var(--panel-soft);
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.95rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+
+    .footer {
+      padding: 16px 0 28px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .sticky-call {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(247, 245, 242, 0.94);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--line);
+    }
+
+    .sticky-call .btn {
+      width: 100%;
+      min-height: 56px;
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
+
+      .topbar {
+        padding-top: 18px;
+      }
+
+      .hero {
+        padding: 20px 0 34px;
+      }
+
+      .hero-card {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        align-items: stretch;
+      }
+
+      .hero-content {
+        padding: 42px 34px;
+      }
+
+      .hero-image {
+        min-height: 100%;
+      }
+
+      .cta-stack {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        min-width: 180px;
+      }
+
+      .services-grid,
+      .benefit-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .sticky-call {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Knoxville Spa</div>
+      <div class="location-badge">Knoxville, TN</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="eyebrow">Relaxation • Beauty • Self-Care</div>
+            <h1>Feel Calm, Look Refreshed, Book Your Escape Today.</h1>
+            <p class="subheadline">
+              Rejuvenating spa treatments in Knoxville, TN designed to help you unwind,
+              glow, and leave feeling like yourself again.
+            </p>
+
+            <div class="trust-row">
+              <div class="trust-chip">★★★★★ Rated 4.9/5</div>
+              <div class="trust-chip">Trusted by Knoxville clients</div>
+            </div>
+
+            <div class="review-box">
+              <div class="review-stars">★★★★★</div>
+              <p>
+                “The most relaxing spa visit I’ve had in Knoxville. Beautiful space,
+                friendly team, and I booked my next appointment before I left.”
+              </p>
+            </div>
+
+            <div class="cta-stack">
+              <a href="#contact" class="btn btn-primary">Book Now</a>
+              <a href="tel:8655550198" class="btn btn-secondary">Call (865) 555-0198</a>
+            </div>
+          </div>
+
+          <div class="hero-image" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>Popular Treatments</h2>
+          <p>Simple, calming services built around comfort, results, and repeat bookings.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card">
+            <h3>Signature Facial</h3>
+            <p>Deep cleansing, hydration, and glow-boosting care for tired, stressed skin.</p>
+            <span class="price">Starting at $89</span>
+          </article>
+
+          <article class="card">
+            <h3>Relaxation Massage</h3>
+            <p>Full-body stress relief to ease tension, calm the mind, and reset your week.</p>
+            <span class="price">Starting at $99</span>
+          </article>
+
+          <article class="card">
+            <h3>Body Renewal Package</h3>
+            <p>Scrub, massage, and skin-softening treatment for a full refresh in one visit.</p>
+            <span class="price">Starting at $149</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="highlight">
+          <div class="section-head">
+            <h2>Why Clients Choose Knoxville Spa</h2>
+            <p>You do not need more stress. You need a place that makes booking easy and the visit worth it.</p>
+          </div>
+          <ul>
+            <li>Easy booking and fast phone support</li>
+            <li>Calming, modern spa environment in Knoxville, TN</li>
+            <li>Customized treatments focused on relaxation and visible results</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>What You Can Expect</h2>
+          <p>Clear benefits, not fluff.</p>
+        </div>
+
+        <div class="benefit-grid">
+          <article class="card">
+            <h3>Less Stress</h3>
+            <p>Take a real break from the noise and leave feeling mentally lighter.</p>
+          </article>
+
+          <article class="card">
+            <h3>Healthy Glow</h3>
+            <p>Treatments designed to refresh your skin and help you look rested.</p>
+          </article>
+
+          <article class="card">
+            <h3>Easy Rebooking</h3>
+            <p>Love your visit? Rebook fast and keep your self-care routine going.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="section-head">
+            <h2>Ready to Book Your Spa Visit?</h2>
+            <p>Call now or book your appointment today with Knoxville Spa.</p>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <a href="tel:8655550198">(865) 555-0198</a>
+            </div>
+            <div class="contact-item">
+              <strong>Location</strong>
+              214 Wellness Way, Knoxville, TN
+            </div>
+            <div class="contact-item">
+              <strong>Hours</strong>
+              Mon–Sat: 9:00 AM – 7:00 PM
+            </div>
+          </div>
+
+          <div class="cta-stack">
+            <a href="tel:8655550198" class="btn btn-primary">Call Now</a>
+            <a href="#" class="btn btn-secondary" id="bookButton">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Knoxville Spa • Demo conversion-focused spa website for Knoxville, TN
+    </div>
+  </footer>
+
+  <div class="sticky-call">
+    <a href="tel:8655550198" class="btn btn-primary">Call Now • (865) 555-0198</a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("bookButton").addEventListener("click", function (e) {
+      e.preventDefault();
+      alert("Demo booking button clicked. Replace this with your booking link, form, or calendar.");
+    });
+  </script>
+</body>
+</html>
